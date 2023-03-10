@@ -1,6 +1,6 @@
 {
-  "name": "jondb",
-  "version": "0.0.0",
+  "name": "dbj",
+  "version": "0.0.1",
   "devDependencies": {
     "@types/node": "^18.14.6",
     "npm-ez": "^2.0.2",

@@ -1,11 +1,11 @@
-import { ListBCSV } from '../../types'
+import { DBjList } from '../../types'
 
 const convertValue = (value: undefined | string | number) => {
-  if (value == undefined) return '|'
+  if (value == undefined) return '-'
   return JSON.stringify(value)
 }
 
-export default (keys: string[], data: ListBCSV) => {
+export default (keys: string[], data: DBjList) => {
   let output = keys.join(',')
 
   data.forEach((obj) => {

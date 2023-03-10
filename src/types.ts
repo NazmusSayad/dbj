@@ -1,4 +1,4 @@
-export type ListBCSV = SingleBCSV[]
-export type SingleBCSV = {
+export type DBjList = DBj[]
+export type DBj = {
   [key: string]: any
 }

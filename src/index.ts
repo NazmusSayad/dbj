@@ -1,4 +1,5 @@
-import * as v1 from './v1/index'
+import { convert, parse } from './v1/index'
 import * as v2 from './v2/index'
-export { v1, v2 }
-export default { v1, v2 }
+
+export { convert, parse, v2 }
+export default { convert, parse, v2 }

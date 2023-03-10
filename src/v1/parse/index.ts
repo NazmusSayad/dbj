@@ -1,21 +1,17 @@
 import parseParts from './parseParts'
 
 const getKeyValues = (data: string) => {
-  const rawKeys = data.match(/^.*\n\n/)
-  if (!rawKeys) throw new Error('Invalid data')
-
-  const trimmedKeys = rawKeys[0].trim()
-  const keys = trimmedKeys.split(',')
-
-  const linesRegex = '\n.*'.repeat(keys.length - 1)
-  const regex = new RegExp(`\n\n(.*${linesRegex})`, 'gm')
-  const parts = data.split(regex)
-
-  return [keys, parts]
+  const [rawKeys, , ...values] = data.split('\n')
+  const keys = rawKeys.trim().split(',')
+  return [keys, values]
 }
 
 const parse = (data: string): any => {
-  const [keys, values] = getKeyValues(data.trim())
+  if (data.match(/\n$/g)) {
+    throw new Error('Unexpected new line at the end')
+  }
+
+  const [keys, values] = getKeyValues(data)
   const output = parseParts(keys, values)
   return output
 }
